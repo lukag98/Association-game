@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+  <header>
+      <div>
+       <a href="https://glovoapp.com/"><img src="../ski/glovo.jpeg" id="reklama" alt="glovo"></a> 
+      </div>
+    </header>
+  <nav>
+    <ul>
+      <li><a href="index.html"><img src="../ski/home.png" id="home" alt="home"></a> </li>
+        <li><a href="tabela.html">TABELA</a></li>
+        <li><a href="galerija.html">GALERIJA</a></li>
+        <li><a href="asocijacije.html">ASOCIJACIJE</a></li>
+    </ul>
+</nav> 
+  <div class="onama">
+        <h1>O Meni</h1>
+       
+        <p>
+          Ja sam Luka Glisic i student sam druge godine Visoke Skole elektrotehnike i racunarstva.Najvise volim
+          da slusam muziku i igram igrice. <br>
+          Kombinacija 5 <br>
+ 1. link ka galeriji slika (kreirati galeriju sa Vašim efektom odabiranja i pregleda slika). <br>
+ 2. link ka stranici koja sadrži tabelu koja ima 5 atributa (kolona) i gde  se može vršiti sortiranje redova po bilo kom atributu. <br>
+ 3. link ka igri "Asocijacije za 2 igrača" , igrači pogađaju rešenja četiri kolone sa po četiri asocijacije;
+        </p>
+      </div>
+      <p id="quote"></p>
+
+<script>
+  var quotes = [
+    { text: "Ako drugog poštuješ za sebe ne brini."},
+    { text: "Bez muke nema nauke."},
+    { text: "U sreću se uzda lud, a pametan u svoj trud."},
+    { text: "Ako ne počneš, nećeš ni završiti"},
+    { text: "Ko rano rani, dve sreće grabi."}
+  ];
+
+  var currentIndex = 0;
+  var quoteElem = document.getElementById("quote");
+
+  function updateQuote() {
+    quoteElem.innerHTML = quotes[currentIndex].text;
+    currentIndex++;
+    if (currentIndex >= quotes.length) {
+      currentIndex = 0;
+    }
+  }
+  updateQuote();
+  setInterval(updateQuote, 10000);
+
+</script>
+
+ <footer id="footer"> <div id="kopirajt">
+  <i>&copy 2023 www.lg.com, sva prava zadržana.</i></div>
+
+</footer>
+</body>
+</html>

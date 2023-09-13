@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+      </style>
+      </head>
+      <body>
+        <header>
+          <div >
+           <a href="https://glovoapp.com/"><img src="../ski/glovo.jpeg" id="reklama" alt="glovo"></a> 
+          </div>
+        </header>
+        <nav>
+            <ul>
+              <li><a href="index.html"><img src="../ski/home.png" id="home" alt="home"></a> </li>
+                <li><a href="tabela.html">TABELA</a></li>
+                <li><a href="galerija.html">GALERIJA</a></li>
+                <li><a href="asocijacije.html">ASOCIJACIJE</a></li>
+            </ul>
+        </nav> 
+      <h2>Tabela</h2>
+      
+      <table id="myTable">
+        <tr>
+            <th onclick="sortTable(0)">Ime</th>
+            <th onclick="sortTable(1)">Prezime</th>
+            <th onclick="sortTable(2)">Drzava</th>
+            <th onclick="sortTable(3)">Grad</th>
+            <th onclick="sortTable(4)">Ulica</th>
+        </tr>
+        <tr>
+          <td>Pera</td>
+          <td>Peric</td>
+          <td>Srbija</td>
+          <td>Beograd</td>
+          <td>Vojvode Stepe</td>
+        </tr>
+        <tr>
+          <td>Mika</td>
+          <td>Mikic</td>
+          <td>Crna Gora</td>
+          <td>Podgorica</td>
+          <td>Aerodromska </td>
+        </tr>
+        <tr>
+          <td>Ana</td>
+          <td>Didic</td>
+          <td>Nemacka</td>
+          <td>Berlin</td>
+          <td>Nepoznata ulica</td>
+        </tr>
+        <tr>
+          <td>Luka</td>
+          <td>Doncic</td>
+          <td>Slovenija</td>
+          <td>Ljubljana</td>
+          <td>Topniska ulica</td>
+        </tr>
+        <tr>
+          <td>Jusuf</td>
+          <td>Nurkic</td>
+          <td>Bsona i Hercegovina</td>
+          <td>Tuzla</td>
+          <td>Jalska</td>
+        </tr>
+        <tr>
+          <td>Janis </td>
+          <td>Antetokounmpo</td>
+          <td>Grcka</td>
+          <td>Atina</td>
+          <td>Marni</td>
+        </tr>
+        <tr>
+            <td>Ante</td>
+            <td>Zizic</td>
+            <td>Hrvatska</td>
+            <td>Split</td>
+            <td>Zagrebacka</td>
+          </tr>
+           <tr>
+          <td>Nikola</td>
+          <td>Jokic</td>
+          <td>Srbija</td>
+          <td>Sombor</td>
+          <td>Somborska</td>
+        </tr>
+      </table>    
+      <script>
+        function sortTable(n) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("myTable");
+  switching = true;
+
+  dir = "asc";
+
+  while (switching) {
+
+    switching = false;
+    rows = table.rows;
+ 
+    for (i = 1; i < (rows.length - 1); i++) {
+  
+      shouldSwitch = false;
+ 
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+  
+          shouldSwitch = true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+  
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+ 
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+
+      switchcount ++;
+    } else {
+ 
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+      </script>
+
+<footer id="footer"> <div id="kopirajt">
+  <i>&copy 2023 www.lg.com, sva prava zadržana.</i></div>
+</footer>
+   
+</body>
+</html>

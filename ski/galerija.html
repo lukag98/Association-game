@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GALERIJA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div >
+     <a href="https://glovoapp.com/"><img src="../ski/glovo.jpeg" id="reklama" alt="glovo"></a> 
+    </div>
+  </header>
+  <nav>
+    <ul>
+         <li><a href="index.html"><img src="../ski/home.png" id="home" alt="home"></a> </li>
+        <li><a href="galerija.html">GALERIJA</a></li>
+        <li><a href="tabela.html">TABELA</a></li>
+        <li><a href="asocijacije.html">ASOCIJACIJE</a></li>
+    </ul>
+</nav>
+
+    <div class="kontejnergalerija" >
+
+
+        <div class="slike">
+          <div class="broj">1 / 6</div>
+            <img src="img/galerija/1.png" style="width:100%;">
+        </div>
+      
+        <div class="slike">
+          <div class="broj">2 / 6</div>
+            <img src="img/galerija/2.png" style="width:100%;">
+        </div>
+      
+        <div class="slike">
+          <div class="broj">3 / 6</div>
+            <img src="img/galerija/3.png" style="width:100%;">
+        </div>
+      
+        <div class="slike">
+          <div class="broj">4 / 6</div>
+            <img src="img/galerija/4.png" style="width:100%;">
+        </div>
+      
+        <div class="slike">
+          <div class="broj">5 / 6</div>
+            <img src="img/galerija/5.png" style="width:100%;">
+        </div>
+      
+        <div class="slike">
+          <div class="broj">6 / 6</div>
+            <img src="img/galerija/6.png" style="width:100%;">
+        </div>
+      
+    
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      
+    
+      
+        <!--Slike -->
+        <div class="row">
+          <div class="column">
+            <img class="demo cursor" src="img/galerija/1.png" style="width:100%" onclick="currentSlide(1)">
+          </div>
+          <div class="column">
+            <img class="demo cursor" src="img/galerija/2.png" style="width:100%" onclick="currentSlide(2)">
+          </div>
+          <div class="column">
+            <img class="demo cursor" src="img/galerija/3.png" style="width:100%" onclick="currentSlide(3)">
+          </div>
+          <div class="column">
+            <img class="demo cursor" src="img/galerija/4.png" style="width:100%" onclick="currentSlide(4)">
+          </div>
+          <div class="column">
+            <img class="demo cursor" src="img/galerija/5.png" style="width:100%" onclick="currentSlide(5)">
+          </div>
+          <div class="column">
+            <img class="demo cursor" src="img/galerija/6.png" style="width:100%" onclick="currentSlide(6)">
+          </div>
+        </div>
+      </div>
+    
+    
+    
+      <script>
+        let slideIndex = 1;
+    showSlides(slideIndex);
+    
+    // Next/previous controls
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    
+    // Thumbnail image controls
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("slike");
+      let dots = document.getElementsByClassName("demo");
+      let captionText = document.getElementById("caption");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+      captionText.innerHTML = dots[slideIndex-1].alt;
+    } 
+      </script> 
+      <footer id="footer"> <div id="kopirajt">
+        <i>&copy 2023 www.lg.com, sva prava zadržana.</i></div>
+      
+      </footer>
+</body>
+</html>

@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Asocijacije</title>
+    <style>
+          #footer{
+    width: 100%;
+    height: 200px;
+    font-size: 20px;
+    border-top: 2px solid black;
+    color: black;
+    margin-top: 280px;
+    text-align: center;
+  }
+      #prvi-red{
+    width: 100%;
+    height: 40%;
+    margin: auto;
+}
+
+#drugi-red{
+    width: 100%;
+    height: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+}
+
+#treci-red{
+    width: 100%;
+    height: 40%;
+    margin: auto;
+}
+
+.kolona{
+    width:48%;
+    height:100%;
+    margin:4px;
+    float: left;
+    
+}
+
+.polje{
+    width: 50%;
+    height:18%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border: 1px solid black;
+    line-height: 250%;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    transition: 0.3s all ease-in;
+    
+}
+
+.polje:hover{
+    cursor: pointer;
+}
+
+.kolona input{
+    width: 50%;
+    height: 50px;
+    margin-left: 200px;
+    text-align: center;
+    font-size: 20px;
+}
+
+#kk{
+    height: 40px;
+    margin-left: 380px;
+    width: 50%;
+    text-align: center;
+    font-size: 20px;
+}
+  
+#proveri{
+    width: 200px;
+    height: 100px;
+    font-size: 32px;
+    margin-top: -50px;
+    margin-left: 640px;
+    border-radius: 50%;
+}
+#rezultat{
+    display: inline-block;
+
+}
+#rezultat{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100px;
+    display: inline;
+    justify-content: space-between;
+}
+
+#poeni1{
+
+  width: 10%;
+  margin-left: auto;
+  margin-right: auto;
+ 
+}
+
+#poeni2{
+ 
+  width: 10%;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+#tajmer{
+  text-align: center;
+  font-size: 32px;
+  display: inline-block;
+  padding: 5px;
+}
+
+#vreme{
+  color: green;
+}
+
+.igrac{
+    display: inline-block;
+    width: 44%;
+    height: 100px;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 18px;
+}
+    </style>
+ 
+</head>
+<body>
+    <header>
+        <div >
+         <a href="https://glovoapp.com/"><img src="../ski/glovo.jpeg" id="reklama" alt="glovo"></a> 
+        </div>
+      </header>
+      <nav>
+        <ul>
+             <li><a href="index.html"><img src="../ski/home.png" id="home" alt="home"></a> </li>
+            <li><a href="galerija.html">GALERIJA</a></li>
+            <li><a href="tabela.html">TABELA</a></li>
+            <li><a href="asocijacije.html">ASOCIJACIJE</a></li>
+        </ul>
+    </nav>
+    <div id="igra">
+        <div id="rezultat">
+            <div class="igrac">
+                <h2 id="igrac1">Na potezu Igrac 1 </h2>
+                <h3>Poeni:</h3>
+                <div id="poeni1">0</div>
+            </div>
+            <div id="tajmer">
+                <div id="vreme-naslov">Vreme</div>
+                <div id="vreme">20</div>
+            </div>
+            <div class="igrac">
+                <h2 id="igrac2">Igrac 2</h2>
+                <h3>Poeni:</h3>
+                <div id="poeni2">0</div>
+            </div>
+        </div>
+        <div id="polja">
+            <div id="prvi-red">
+                <div class="kolona">
+                    <div class="polje" onclick="otvoripolje(this)" id="a1">A1</div>
+                    <div class="polje" onclick="otvoripolje(this)" id="a2">A2</div>
+                    <div class="polje" onclick="otvoripolje(this)" id="a3">A3</div>
+                    <div class="polje" onclick="otvoripolje(this)" id="a4">A4</div>
+                    <input id="ak" type="text" placeholder="Resenje kolone A" onchange="proveri(this, 'A')"></input>
+                </div>
+                <div class="kolona">
+                    <div class="polje" onclick="otvoripolje(this)" id="b1">B1</div>
+                    <div class="polje" onclick="otvoripolje(this)" id="b2">B2</div>
+                    <div class="polje" onclick="otvoripolje(this)" id="b3">B3</div>
+                    <div class="polje" onclick="otvoripolje(this)" id="b4">B4</div>
+                    <input id="bk" type="text" placeholder="Resenje kolone B" onchange="proveri(this, 'B')"></input>
+                </div>
+            </div>
+            <div id="drugi-red">
+                <input id="kk" type="text" placeholder="Konacno" onchange="proveri(this, 'K')"></input>
+            </div>
+            <div id="treci-red">
+                <div class="kolona">
+                    <input id="ck" type="text" placeholder="Resenje kolone C" onchange="proveri(this, 'C')"></input>
+                    <div class="polje" onclick="otvoripolje(this)" id="c4">C4</div>
+                    <div class="polje" onclick="otvoripolje(this)" id="c3">C3</div>
+                    <div class="polje" onclick="otvoripolje(this)" id="c2">C2</div>
+                    <div class="polje" onclick="otvoripolje(this)" id="c1">C1</div>
+                </div>
+                <div class="kolona">
+                    <input id="dk" type="text" placeholder="Resenje kolone D" onchange="proveri(this, 'D')"></input>
+                    <div class="polje" onclick="otvoripolje(this)" id="d4">D4</div>
+                    <div class="polje" onclick="otvoripolje(this)" id="d3">D3</div>
+                    <div class="polje" onclick="otvoripolje(this)" id="d2">D2</div>
+                    <div class="polje" style="margin-bottom: 100px;" onclick="otvoripolje(this)" id="d1">D1</div>
+                </div>
+            </div><br/>
+           
+        </div>
+      </div>
+      <script>
+        var aktivanIgrac = 1;
+        var otvorenoPolje = 0;
+        var poeni1 = parseInt(document.getElementById("poeni1").innerHTML);
+        var poeni2 = parseInt(document.getElementById("poeni2").innerHTML);
+        var otvoreniA = 0;
+        var otvoreniB = 0;
+        var otvoreniC = 0;
+        var otvoreniD = 0;
+        var reseneKolone = 0;
+    
+        let asocijacije = [
+            ["BOJA", "OSA", "MRLJA", "GROZNICA", "ZUTA", "DVOR", "VOZNJA", "NASTA", "NOC", "LUDA", "DRUG", "JAPAN", "POMOC", "UTAKMICA", "PRIJATELJ", "DOKTOR", "PRAKSA", "PREGLED", "IZABRANI", "LEKAR", "KUCA"],
+            ["VATRA", "CIGARETA", "GUST", "SIGNAL", "DIM", "MASKA", "METAL", "STARO", "PUK", "GVOZDJE", "KORITO", "MALTER", "KUPKA", "DJAKUZI", "KADA", "TOBOGAN", "RAMPA", "PRITISAK", "SNIZAVANJE", "SPUSTANJE", "ZAVESA"],
+            ["FESTIVAL", "FOTO-APARAT", "TABLETA", "MJUZIKL", "FILM", "ODELO", "NAVIKA", "BERZA", "HONORAR", "RAD", "HEMIJA", "LANAC", "ALERGIJA", "ODGOVOR", "REAKCIJA", "STADION", "UEFA", "FIFA", "PESAK", "FUDBAL", "AKCIJA"]
+        ]
+    
+        let indexAsocijacije = Math.floor(Math.random() * asocijacije.length);
+        let asocijacija = asocijacije[indexAsocijacije];
+    
+        function otvoripolje(obj){
+            if(otvorenoPolje == 0){
+                let vrednost = obj.innerHTML;
+                if(vrednost === "A1") {
+                    obj.innerHTML = asocijacija[0];
+                    otvoreniA++;
+                }
+                else if(vrednost === "A2") {
+                    obj.innerHTML = asocijacija[1];
+                    otvoreniA++;
+                }
+                else if(vrednost === "A3") {
+                    obj.innerHTML = asocijacija[2];
+                    otvoreniA++;
+                }
+                else if(vrednost === "A4") {
+                    obj.innerHTML = asocijacija[3];
+                    otvoreniA++;
+                }
+                else if(vrednost === "B1") {
+                    obj.innerHTML = asocijacija[5];
+                    otvoreniB++;
+                }
+                else if(vrednost === "B2") {
+                    obj.innerHTML = asocijacija[6];
+                    otvoreniB++;
+                }
+                else if(vrednost === "B3") {
+                    obj.innerHTML = asocijacija[7];
+                    otvoreniB++;
+                } 
+                else if(vrednost === "B4") {
+                    obj.innerHTML = asocijacija[8];
+                    otvoreniB++;
+                } 
+                else if(vrednost === "C1") {
+                    obj.innerHTML = asocijacija[10];
+                    otvoreniC++;
+                }
+                else if(vrednost === "C2") {
+                    obj.innerHTML = asocijacija[11];
+                    otvoreniC++;
+                }
+                else if(vrednost === "C3") {
+                    obj.innerHTML = asocijacija[12];
+                    otvoreniC++;
+                }
+                else if(vrednost === "C4") {
+                    obj.innerHTML = asocijacija[13];
+                    otvoreniC++;
+                }
+                else if(vrednost === "D1") {
+                    obj.innerHTML = asocijacija[15];
+                    otvoreniD++;
+                }
+                else if(vrednost === "D2") {
+                    obj.innerHTML = asocijacija[16];
+                    otvoreniD++;
+                }
+                else if(vrednost === "D3") {
+                    obj.innerHTML = asocijacija[17];
+                    otvoreniD++;
+                }
+                else if(vrednost === "D4") {
+                    obj.innerHTML = asocijacija[18];
+                    otvoreniD++;
+                }
+                otvorenoPolje++;
+            }
+            else{
+                alert("Ne mozete otvoriti vise od jednog polja.");
+            }
+        }
+    
+        function zameni(){
+            if(aktivanIgrac == 1){
+                aktivanIgrac = 2;
+                document.getElementById("igrac1").innerHTML = "Igrac 1";
+                document.getElementById("igrac2").innerHTML = "Na potezu igrac 2 ";
+            }
+            else {
+                aktivanIgrac = 1;
+                document.getElementById("igrac1").innerHTML = "Na potezu igrac 1 ";
+                document.getElementById("igrac2").innerHTML = "Igrac 2";
+            }
+            otvorenoPolje=0;
+            vreme = 21;
+            //console.log(aktivanIgrac);
+        }
+    
+        var vreme = 20;
+        function tajmer(){
+          
+            if(vreme > 0){
+                vreme--;
+                if(vreme < 6){
+                    document.getElementById("vreme").style.color = "red";
+                }
+            }
+            else{
+                zameni();
+                document.getElementById("vreme").style.color = "green";
+                vreme = 20;
+            }
+    
+            document.getElementById("vreme").innerHTML = vreme;
+            console.log(vreme);
+        }
+    
+        setInterval(tajmer, 1000);
+    
+        function proveri(obj, kojaKolona){
+            let pokusaj = obj.value;
+            //console.log(pokusaj);
+    
+            if(kojaKolona === 'A' && pokusaj.toUpperCase() === asocijacija[4] && otvoreniA > 0){
+                obj.value = asocijacija[4];
+                obj.disabled = true;
+                obj.style.color='white';
+                obj.style.backgroundColor = 'green';
+                dodajPoene(5 + 5*(4-otvoreniA));
+                document.getElementById("a1").innerHTML = asocijacija[0];
+                document.getElementById("a1").style.backgroundColor = 'green';
+                document.getElementById("a1").style.color = 'white';
+                document.getElementById("a2").innerHTML = asocijacija[1];
+                document.getElementById("a2").style.backgroundColor = 'green';
+                document.getElementById("a2").style.color = 'white';
+                document.getElementById("a3").innerHTML = asocijacija[2];
+                document.getElementById("a3").style.backgroundColor = 'green';
+                document.getElementById("a3").style.color = 'white';
+                document.getElementById("a4").innerHTML = asocijacija[3];
+                document.getElementById("a4").style.backgroundColor = 'green';
+                document.getElementById("a4").style.color = 'white';
+                reseneKolone++;
+            }
+            else if(kojaKolona === 'B' && pokusaj.toUpperCase() === asocijacija[9] && otvoreniB > 0){
+                obj.value = asocijacija[9];
+                obj.disabled = true;
+                obj.style.color='white';
+                obj.style.backgroundColor = 'green';
+                dodajPoene(5 + 5*(4-otvoreniB));
+                document.getElementById("b1").innerHTML = asocijacija[5];
+                document.getElementById("b1").style.backgroundColor = 'green';
+                document.getElementById("b1").style.color = 'white';
+                document.getElementById("b2").innerHTML = asocijacija[6];
+                document.getElementById("b2").style.backgroundColor = 'green';
+                document.getElementById("b2").style.color = 'white';
+                document.getElementById("b3").innerHTML = asocijacija[7];
+                document.getElementById("b3").style.backgroundColor = 'green';
+                document.getElementById("b3").style.color = 'white';
+                document.getElementById("b4").innerHTML = asocijacija[8];
+                document.getElementById("b4").style.backgroundColor = 'green';
+                document.getElementById("b4").style.color = 'white';
+                reseneKolone++;
+            }
+            else if(kojaKolona === 'C' && pokusaj.toUpperCase() === asocijacija[14] && otvoreniC > 0){
+                obj.value = asocijacija[14];
+                obj.disabled = true;
+                obj.style.color='white';
+                obj.style.backgroundColor = 'green';
+                dodajPoene(5 + 5*(4-otvoreniC));
+                document.getElementById("c1").innerHTML = asocijacija[10];
+                document.getElementById("c1").style.backgroundColor = 'green';
+                document.getElementById("c1").style.color = 'white';
+                document.getElementById("c2").innerHTML = asocijacija[11];
+                document.getElementById("c2").style.backgroundColor = 'green';
+                document.getElementById("c2").style.color = 'white';
+                document.getElementById("c3").innerHTML = asocijacija[12];
+                document.getElementById("c3").style.backgroundColor = 'green';
+                document.getElementById("c3").style.color = 'white';
+                document.getElementById("c4").innerHTML = asocijacija[13];
+                document.getElementById("c4").style.backgroundColor = 'green';
+                document.getElementById("c4").style.color = 'white';
+                reseneKolone++;
+            }
+            else if(kojaKolona === 'D' && pokusaj.toUpperCase() === asocijacija[19] && otvoreniD > 0){
+                obj.value = asocijacija[19];
+                obj.disabled = true;
+                obj.style.color='white';
+                obj.style.backgroundColor = 'green';
+                dodajPoene(5 + 5*(4-otvoreniD));
+                document.getElementById("d1").innerHTML = asocijacija[15];
+                document.getElementById("d1").style.backgroundColor = 'green';
+                document.getElementById("d1").style.color='white';
+                document.getElementById("d2").innerHTML = asocijacija[16];
+                document.getElementById("d2").style.backgroundColor = 'green';
+                document.getElementById("d2").style.color='white';
+                document.getElementById("d3").innerHTML = asocijacija[17];
+                document.getElementById("d3").style.backgroundColor = 'green';
+                document.getElementById("d3").style.color='white';
+                document.getElementById("d4").innerHTML = asocijacija[18];
+                document.getElementById("d4").style.backgroundColor = 'green';
+                document.getElementById("d4").style.color='white';
+                reseneKolone++;
+            }
+            else if(kojaKolona === 'K' && pokusaj.toUpperCase() === asocijacija[20] && reseneKolone > 0){
+                document.getElementById("ak").value = asocijacija[4];
+                document.getElementById("ak").style.backgroundColor = 'green';
+                document.getElementById("ak").style.color='white';
+                document.getElementById("ak").disabled = true;
+                document.getElementById("bk").value = asocijacija[9];
+                document.getElementById("bk").style.backgroundColor = 'green';
+                document.getElementById("bk").style.color='white';
+                document.getElementById("bk").disabled = true;
+                document.getElementById("ck").value = asocijacija[14];
+                document.getElementById("ck").style.backgroundColor = 'green';
+                document.getElementById("ck").style.color='white';
+                document.getElementById("ck").disabled = true;
+                document.getElementById("dk").value = asocijacija[19];
+                document.getElementById("dk").style.backgroundColor = 'green';
+                document.getElementById("dk").style.color='white';
+                document.getElementById("dk").disabled = true;
+                document.getElementById("kk").value = asocijacija[20];
+                document.getElementById("kk").style.backgroundColor = 'green';
+                document.getElementById("kk").style.color='white';
+                document.getElementById("kk").disabled = true;
+    
+                document.getElementById("a1").innerHTML = asocijacija[0];
+                document.getElementById("a1").style.backgroundColor = 'green';
+                document.getElementById("a1").style.color = 'white';
+                document.getElementById("a2").innerHTML = asocijacija[1];
+                document.getElementById("a2").style.backgroundColor = 'green';
+                document.getElementById("a2").style.color = 'white';
+                document.getElementById("a3").innerHTML = asocijacija[2];
+                document.getElementById("a3").style.backgroundColor = 'green';
+                document.getElementById("a3").style.color = 'white';
+                document.getElementById("a4").innerHTML = asocijacija[3];
+                document.getElementById("a4").style.backgroundColor = 'green';
+                document.getElementById("a4").style.color = 'white';
+    
+                document.getElementById("b1").innerHTML = asocijacija[5];
+                document.getElementById("b1").style.backgroundColor = 'green';
+                document.getElementById("b1").style.color = 'white';
+                document.getElementById("b2").innerHTML = asocijacija[6];
+                document.getElementById("b2").style.backgroundColor = 'green';
+                document.getElementById("b2").style.color = 'white';
+                document.getElementById("b3").innerHTML = asocijacija[7];
+                document.getElementById("b3").style.backgroundColor = 'green';
+                document.getElementById("b3").style.color = 'white';
+                document.getElementById("b4").innerHTML = asocijacija[8];
+                document.getElementById("b4").style.backgroundColor = 'green';
+                document.getElementById("b4").style.color = 'white';
+    
+                document.getElementById("c1").innerHTML = asocijacija[10];
+                document.getElementById("c1").style.backgroundColor = 'green';
+                document.getElementById("c1").style.color = 'white';
+                document.getElementById("c2").innerHTML = asocijacija[11];
+                document.getElementById("c2").style.backgroundColor = 'green';
+                document.getElementById("c2").style.color = 'white';
+                document.getElementById("c3").innerHTML = asocijacija[12];
+                document.getElementById("c3").style.backgroundColor = 'green';
+                document.getElementById("c3").style.color = 'white';
+                document.getElementById("c4").innerHTML = asocijacija[13];
+                document.getElementById("c4").style.backgroundColor = 'green';
+                document.getElementById("c4").style.color = 'white';
+    
+                document.getElementById("d1").innerHTML = asocijacija[15];
+                document.getElementById("d1").style.backgroundColor = 'green';
+                document.getElementById("d1").style.color='white';
+                document.getElementById("d2").innerHTML = asocijacija[16];
+                document.getElementById("d2").style.backgroundColor = 'green';
+                document.getElementById("d2").style.color='white';
+                document.getElementById("d3").innerHTML = asocijacija[17];
+                document.getElementById("d3").style.backgroundColor = 'green';
+                document.getElementById("d3").style.color='white';
+                document.getElementById("d4").innerHTML = asocijacija[18];
+                document.getElementById("d4").style.backgroundColor = 'green';
+                document.getElementById("d4").style.color='white';
+    
+                dodajPoene(5 + 20*(4-reseneKolone));
+    
+                if(poeni1 > poeni2) alert("Pobednik je igrac 1 !!!");
+                else if( poeni1 === poeni2) alert("Neresen mec !!!");
+                    else alert("Pobednik je igrac 2 !!!"); 
+    
+                document.getElementById("proveri").disabled = true;
+            }
+            else if(kojaKolona === 'A' && pokusaj.toUpperCase() !== asocijacija[4]){
+                document.getElementById("ak").value="";
+                tresi();
+                zameni();
+            }
+            else if(kojaKolona === 'B' && pokusaj.toUpperCase() !== asocijacija[9]){
+                document.getElementById("bk").value="";
+                tresi();
+                zameni();
+            }
+            else if(kojaKolona === 'C' && pokusaj.toUpperCase() !== asocijacija[14]){
+                document.getElementById("ck").value="";
+                tresi();
+                zameni();
+            }
+            else if(kojaKolona === 'D' && pokusaj.toUpperCase() !== asocijacija[19]){
+                document.getElementById("dk").value="";
+                tresi();
+                zameni();
+            }
+            else if(kojaKolona === 'K' && pokusaj.toUpperCase() !== asocijacija[20]){
+                document.getElementById("kk").value="";
+                tresi();
+                zameni();
+            }
+            else{
+                alert("Morate pogoditi makar jednu kolonu pre nego sto pokusate konacno.");
+                document.getElementById("kk").value="";
+                zameni();
+            }
+        }
+    
+        function tresi(){
+            element = document.querySelector('#igra');
+            element.classList.add('tresi');
+            setTimeout(function() {
+                element.classList.remove('tresi');
+            }, 500);
+        }
+    
+        function dodajPoene(val){
+            if(aktivanIgrac === 1){
+                poeni1 += val;
+                document.getElementById("poeni1").innerHTML = poeni1;
+            }
+            else{
+                poeni2 += val;
+                document.getElementById("poeni2").innerHTML = poeni2;
+            }
+        }
+    
+      </script>
+    
+
+    <footer id="footer"> <div id="kopirajt">
+        <i> &copy 2023 www.lg.com, sva prava zadržana. </i></div>
+      
+      </footer>
+</body>
+</html>
